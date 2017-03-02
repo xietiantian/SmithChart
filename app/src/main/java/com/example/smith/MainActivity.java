@@ -22,10 +22,11 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
-	private EditText etext_vswr, etext_refin, etext_zin, etext_refl;
+	private TextView etext_vswr, etext_refin, etext_zin, etext_refl;
 	private EditText etex_zlreal, etex_zlimg, etex_z0, etex_d;
 	private ZoomImageView zoomImageView;
 	private Timer timer = new java.util.Timer(true);
@@ -41,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
 	Handler mHandler = new Handler() {
 		public void handleMessage(Message msg) {
 			if (msg.what == 0) {// 检测到move point后
-				etext_refin.setText(trans_line.abCalcReIn(
+			    etext_refin.setText(trans_line.abCalcReIn(
 						zoomImageView.getPointA(), zoomImageView.getPointB())
 						.toString());
 				etext_zin.setText(trans_line.ReInCalcZin().toString());
@@ -79,10 +80,10 @@ public class MainActivity extends ActionBarActivity {
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-		etext_vswr = (EditText) this.findViewById(R.id.vswr);
-		etext_refin = (EditText) this.findViewById(R.id.reflection_in);
-		etext_zin = (EditText) this.findViewById(R.id.zin);
-		etext_refl = (EditText) this.findViewById(R.id.reflection_l);
+		etext_vswr = (TextView) this.findViewById(R.id.vswr);
+		etext_refin = (TextView) this.findViewById(R.id.reflection_in);
+		etext_zin = (TextView) this.findViewById(R.id.zin);
+		etext_refl = (TextView) this.findViewById(R.id.reflection_l);
 		etex_zlreal = (EditText) this.findViewById(R.id.zlreal);
 		etex_zlimg = (EditText) this.findViewById(R.id.zlimg);
 		etex_z0 = (EditText) this.findViewById(R.id.z0);
@@ -91,10 +92,13 @@ public class MainActivity extends ActionBarActivity {
 		sb_init();
 
 		zoomImageView = (ZoomImageView) findViewById(R.id.zoom_image_view);
-		Bitmap bitmap = BitmapFactory.decodeStream(getResources()
-				.openRawResource(R.drawable.abc_smith_xbig));
-		Bitmap point = BitmapFactory.decodeStream(getResources()
-				.openRawResource(R.drawable.point));
+		Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.abc_smith_xbig);
+		Bitmap point = BitmapFactory.decodeResource(getResources(),R.drawable.point);
+
+//		Bitmap bitmap = BitmapFactory.decodeStream(getResources()
+//				.openRawResource(R.drawable.abc_smith_xbig));
+//		Bitmap point = BitmapFactory.decodeStream(getResources()
+//				.openRawResource(R.drawable.point));
 		zoomImageView.setImageBitmap(bitmap, point);
 
 		etex_z0.addTextChangedListener(new TextWatcher() {
@@ -126,7 +130,8 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				if (zoomImageView.getStatus() == zoomImageView.STATUS_MOVE_POINT ||zoomImageView.getStatus() == zoomImageView.STATUS_INIT ) {
+				if (zoomImageView.getStatus() == zoomImageView.STATUS_MOVE_POINT
+						||zoomImageView.getStatus() == zoomImageView.STATUS_INIT ) {
 					mHandler.sendEmptyMessage(0);
 				}
 			}
@@ -162,7 +167,7 @@ public class MainActivity extends ActionBarActivity {
 		OnSeekBarChangeListener osbcl = new OnSeekBarChangeListener() {
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
-				trans_line.setd((double) seekbar.getProgress() / 1000);
+				trans_line.setd((double) seekbar.getProgress() / seekBar.getMax());
 				mHandler.sendEmptyMessage(1);
 			}
 
