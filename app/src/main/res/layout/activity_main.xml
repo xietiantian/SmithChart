@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/zlreal"
+        android:id="@+id/etZlReal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -24,16 +24,16 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/zlreal"
-        android:layout_alignBottom="@+id/zlreal"
+        android:layout_alignBaseline="@+id/etZlReal"
+        android:layout_alignBottom="@+id/etZlReal"
         android:layout_margin="12dp"
         android:layout_marginTop="20dp"
-        android:layout_toLeftOf="@+id/zlreal"
-        android:layout_toStartOf="@+id/zlreal"
+        android:layout_toLeftOf="@+id/etZlReal"
+        android:layout_toStartOf="@+id/etZlReal"
         android:text="ZL的实部" />
 
     <com.example.smith.ZoomImageView
-        android:id="@+id/zoom_image_view"
+        android:id="@+id/zivSmithChart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
@@ -42,188 +42,185 @@
         android:background="#000000"></com.example.smith.ZoomImageView>
 
     <EditText
-        android:id="@+id/zlimg"
+        android:id="@+id/etZlImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/zlreal"
-        android:layout_alignStart="@+id/zlreal"
-        android:layout_below="@+id/zlreal"
+        android:layout_alignLeft="@+id/etZlReal"
+        android:layout_alignStart="@+id/etZlReal"
+        android:layout_below="@+id/etZlReal"
         android:ems="8"
         android:inputType="numberSigned|numberDecimal" />
 
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/zlimg"
-        android:layout_alignBottom="@+id/zlimg"
+        android:layout_alignBaseline="@+id/etZlImg"
+        android:layout_alignBottom="@+id/etZlImg"
         android:layout_alignLeft="@+id/textView1"
         android:layout_alignStart="@+id/textView1"
         android:text="ZL的虚部" />
 
     <EditText
-        android:id="@+id/z0"
+        android:id="@+id/etZ0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/zlreal"
-        android:layout_alignStart="@+id/zlreal"
-        android:layout_below="@+id/zlimg"
+        android:layout_alignLeft="@+id/etZlReal"
+        android:layout_alignStart="@+id/etZlReal"
+        android:layout_below="@+id/etZlImg"
         android:ems="8"
         android:inputType="number|numberDecimal"
         android:text="50" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/z0"
-        android:layout_alignBottom="@+id/z0"
+        android:layout_alignBaseline="@+id/etZ0"
+        android:layout_alignBottom="@+id/etZ0"
         android:layout_alignLeft="@+id/textView1"
         android:layout_alignStart="@+id/textView1"
         android:text="Z0" />
 
 
-    <EditText
-        android:id="@+id/d"
+    <TextView
+        android:id="@+id/tvDistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/zlreal"
-        android:layout_alignStart="@+id/zlreal"
-        android:layout_below="@+id/z0"
-        android:ems="8"
-        android:inputType="none"
+        android:layout_alignLeft="@+id/etZlReal"
+        android:layout_alignStart="@+id/etZlReal"
+        android:layout_below="@+id/etZ0"
         android:text="0" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/d"
-        android:layout_alignBottom="@+id/d"
+        android:layout_alignBaseline="@+id/tvDistance"
+        android:layout_alignBottom="@+id/tvDistance"
         android:layout_alignLeft="@+id/textView1"
         android:layout_alignStart="@+id/textView1"
         android:text="l/λ\n拖拽调整" />
 
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/d"
-        android:layout_alignStart="@+id/d"
-        android:layout_below="@+id/d"
+        android:layout_alignLeft="@+id/tvDistance"
+        android:layout_alignStart="@+id/tvDistance"
+        android:layout_below="@+id/tvDistance"
         android:text="0" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/seekbar"
-        android:layout_alignEnd="@+id/calbtn"
-        android:layout_alignRight="@+id/calbtn"
-        android:text="0.5" />
+        android:layout_alignBottom="@+id/sbDistance"
+        android:layout_alignEnd="@+id/btnCalculate"
+        android:layout_alignRight="@+id/btnCalculate"
+        android:text="1" />
 
     <SeekBar
-        android:id="@+id/seekbar"
+        android:id="@+id/sbDistance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/d"
-        android:layout_toEndOf="@+id/textView20"
-        android:layout_toLeftOf="@+id/textView21"
-        android:layout_toRightOf="@+id/textView20"
-        android:layout_toStartOf="@+id/textView21" />
+        android:layout_below="@+id/tvDistance"
+        android:layout_toEndOf="@+id/textView5"
+        android:layout_toLeftOf="@+id/textView6"
+        android:layout_toRightOf="@+id/textView5"
+        android:layout_toStartOf="@+id/textView6" />
 
     <Button
-        android:id="@+id/calbtn"
+        android:id="@+id/btnCalculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/seekbar"
+        android:layout_below="@+id/sbDistance"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:onClick="clickHandler1"
         android:text="计算" />
 
     <TextView
-        android:id="@+id/reflection_l"
+        android:id="@+id/tvReflectionL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/zlreal"
-        android:layout_alignStart="@+id/zlreal"
-        android:layout_below="@+id/calbtn"
+        android:layout_alignLeft="@+id/etZlReal"
+        android:layout_alignStart="@+id/etZlReal"
+        android:layout_below="@+id/btnCalculate"
         android:ems="8"
         android:inputType="none" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/reflection_l"
-        android:layout_alignBottom="@+id/reflection_l"
+        android:layout_alignBaseline="@+id/tvReflectionL"
+        android:layout_alignBottom="@+id/tvReflectionL"
         android:layout_alignLeft="@+id/textView1"
         android:layout_alignStart="@+id/textView1"
         android:text="Γl" />
 
     <TextView
-        android:id="@+id/reflection_in"
+        android:id="@+id/tvReflectionIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/zlreal"
-        android:layout_alignStart="@+id/zlreal"
-        android:layout_below="@+id/reflection_l"
+        android:layout_alignLeft="@+id/etZlReal"
+        android:layout_alignStart="@+id/etZlReal"
+        android:layout_below="@+id/tvReflectionL"
         android:ems="8"
         android:inputType="none" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/reflection_in"
-        android:layout_alignBottom="@+id/reflection_in"
+        android:layout_alignBaseline="@+id/tvReflectionIn"
+        android:layout_alignBottom="@+id/tvReflectionIn"
         android:layout_alignLeft="@+id/textView1"
         android:layout_alignStart="@+id/textView1"
         android:text="Γin" />
 
 
     <TextView
-        android:id="@+id/zin"
+        android:id="@+id/tvZin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/zlreal"
-        android:layout_alignStart="@+id/zlreal"
-        android:layout_below="@+id/reflection_in"
+        android:layout_alignLeft="@+id/etZlReal"
+        android:layout_alignStart="@+id/etZlReal"
+        android:layout_below="@+id/tvReflectionIn"
         android:ems="8"
         android:inputType="none" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/zin"
-        android:layout_alignBottom="@+id/zin"
+        android:layout_alignBaseline="@+id/tvZin"
+        android:layout_alignBottom="@+id/tvZin"
         android:layout_alignLeft="@+id/textView1"
         android:layout_alignStart="@+id/textView1"
         android:text="Γin" />
 
     <TextView
-        android:id="@+id/vswr"
+        android:id="@+id/tvVSWR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/zlreal"
-        android:layout_alignStart="@+id/zlreal"
-        android:layout_below="@+id/zin"
+        android:layout_alignLeft="@+id/etZlReal"
+        android:layout_alignStart="@+id/etZlReal"
+        android:layout_below="@+id/tvZin"
         android:ems="8"
         android:inputType="none" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/vswr"
-        android:layout_alignBottom="@+id/vswr"
+        android:layout_alignBaseline="@+id/tvVSWR"
+        android:layout_alignBottom="@+id/tvVSWR"
         android:layout_alignLeft="@+id/textView1"
         android:layout_alignStart="@+id/textView1"
         android:text="VSWR" />

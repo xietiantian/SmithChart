@@ -50,8 +50,9 @@ public class ZoomImageView extends View {
 	 * point长宽
 	 */
 	public static final int POINT_SIZE = 20;
+    private final OnPointMoveListener mOnPointMoveListener;
 
-	/**
+    /**
 	 * 用于对图片进行移动和缩放变换的矩阵
 	 */
 	private Matrix matrix = new Matrix();
@@ -190,6 +191,8 @@ public class ZoomImageView extends View {
 	 */
 	private SmithChart Schart = new SmithChart();
 
+	private Context mContext;
+
 	/**
 	 * ZoomImageView构造函数，将当前操作状态设为STATUS_INIT。
 	 * 
@@ -198,6 +201,11 @@ public class ZoomImageView extends View {
 	 */
 	public ZoomImageView(Context context, AttributeSet attrs) {
 		super(context, attrs);
+        if (context instanceof OnPointMoveListener) {
+            mOnPointMoveListener = (OnPointMoveListener) context;
+        } else {
+            mOnPointMoveListener = null;
+        }
 		currentStatus = STATUS_INIT;
 	}
 
@@ -356,12 +364,14 @@ public class ZoomImageView extends View {
 			break;
 		case STATUS_MOVE_POINT:
 			movePoint(canvas);
+            mOnPointMoveListener.onPointMoved();
 			break;
 		case STATUS_SET_POINT:
 			setPoint(canvas);
 			break;
 		case STATUS_INIT:
 			initBitmap(canvas);
+            mOnPointMoveListener.onPointMoved();
 			break;
 		default:
 			canvas.drawBitmap(sourceBitmap, matrix, null);
@@ -670,5 +680,9 @@ public class ZoomImageView extends View {
 		centerPointX = (xPoint0 + xPoint1) / 2;
 		centerPointY = (yPoint0 + yPoint1) / 2;
 	}
+
+    public interface OnPointMoveListener {
+        public void onPointMoved();
+    }
 
 }
